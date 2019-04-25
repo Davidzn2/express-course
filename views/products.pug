@@ -1,0 +1,23 @@
+extends layout
+
+block hero
+  setion.hero-is-dark.is-bold
+    .hero-body
+      .container
+        h1.title My Shop
+block content
+    .container(style="flex:1; padding: 50px 0;")
+        .columns.is-multiline
+            each product in products
+                .column.is-one-quarter
+                    .card
+                        .card-image
+                            figure.image(style="height:190px;")
+                                img(src=product.image style="height:100%; object-fit:cover; width:100%;")
+                        .card-content
+                            h1.title= product.name
+                            .button.is-fullwidth.is-primary
+                                span.icon
+                                    i.fas.fa-shopping-cart
+                                span Add To cart
+                            strong= `  $${product.price} Pesos`

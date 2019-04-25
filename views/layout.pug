@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title Mi pagina
+    meta(charset='utf-8')
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css ")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body(style="display:flex; min-height:100vh; flex-direction:column;")
+    include navbar.pug
+    block hero
+    block content
+    include footer.pug
