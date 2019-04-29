@@ -5,10 +5,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users/users');
 var productsRouter = require('./routes/views/products')
 var productsApiRouter = require('./routes/api/products.js')
+var {
+  logErrors,
+  errorHandler,
+  clientErrorHandler
+} = require('./utils/middlewares/errorsHandlers')
 
 const app = express();
 
@@ -44,6 +50,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+// Handle errors
+app.use(logErrors);
+app.use(errorHandler);
+app.use(clientErrorHandler);
+
 const server = app.listen(8000, function() {
   console.log(`Listening http://localhost:${server.address().port}`);
 });
