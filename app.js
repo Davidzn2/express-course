@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users/users');
 var productsRouter = require('./routes/views/products')
 var productsApiRouter = require('./routes/api/products.js')
+var authApiRouter = require('./routes/api/auth.js')
 var {
   logErrors,
   errorHandler,
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/api/products', productsApiRouter)
+app.use('/api/auth', authApiRouter);
 app.get('/', function(req,res){
   res.redirect('/products')
 })
