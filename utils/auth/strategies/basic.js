@@ -6,8 +6,7 @@ const MongoLib = require("../../../lib/mongo");
 
 passport.use(
     new BasicStrategy(async function(username, password, cb){
-        const mongoDB = new MongoLib();
-        
+        const mongoDB = new MongoLib();        
         try{
             const [user] = await mongoDB.getAll("users", {username});
             if (!user){
