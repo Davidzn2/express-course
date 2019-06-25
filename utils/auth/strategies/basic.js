@@ -4,6 +4,8 @@ const boom = require('boom');
 const bcrypt = require('bcrypt');
 const MongoLib = require("../../../lib/mongo");
 
+// CB = CALLBACK
+
 passport.use(
     new BasicStrategy(async function(username, password, cb){
         const mongoDB = new MongoLib();        
